@@ -1,0 +1,24 @@
+{
+    "name": "dashboard",
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "yarn watch:css && vite",
+        "build": "yarn vite watch:css && build",
+        "watch:css": "postcss src/assets/tailwind.scss -o src/assets/main.css",
+        "build:css": "postcss src/assets/tailwind.scss -o src/assets/main.css",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^1.0.7",
+        "autoprefixer": "^10.4.2",
+        "postcss": "^8.4.6",
+        "postcss-cli": "^9.1.0",
+        "sass": "^1.49.7",
+        "tailwindcss": "^3.0.18",
+        "vite": "^2.7.2"
+    }
+}
