@@ -25,8 +25,6 @@ const Form = ({
             [name]: value,
         };
 
-        console.log("Form changed: ", updatedForm);
-
         // Update state
         setForm(updatedForm);
     };

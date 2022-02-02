@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Form from "./Form";
 import FormInput from "./FormInput";
 
 const Formulary = () => {
     const [message, setMessage] = useState("");
-    const handleSubmit = (e) => {
-        e.preventDefault();
+
+    const handleSubmit = () => {
         setMessage(`Hi, please confirm your data`);
     };
 
@@ -25,6 +25,10 @@ const Formulary = () => {
         result: "",
     };
 
+    useEffect(() => {
+        if (message !== "") console.log(message); //TODO: to continue tomorrow
+    }, [message]);
+
     return (
         <div className="container mx-auto rounded-lg pt-4">
             <h1 className="font-bold text-4xl text-center">Covid Tests</h1>
@@ -35,7 +39,7 @@ const Formulary = () => {
                 }
                 propsInitialState={formInitialState}
                 submit={handleSubmit}
-                buttonClassName="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-40 shadow-lg"
+                buttonClassName="bg-red-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-40 shadow-lg"
                 buttonLabel="Send"
             >
                 <h2 className="font-black text-3xl text-center text-white italic col-span-2">
@@ -64,6 +68,50 @@ const Formulary = () => {
                             <option value="pcr">Antigenyc</option>
                         </FormInput>
                     </div>
+                    <div className="mb-5">
+                        <FormInput
+                            name="passport"
+                            label="Passport"
+                            className="border-2 w-full p-2 mt-2 placeholder-black italic rounded-md"
+                            labelClassName="block text-white text-sm font-bold"
+                        />
+                    </div>
+                    <div className="mb-5">
+                        <FormInput
+                            type="select"
+                            name="gender"
+                            label="Gender"
+                            className="border-2 w-full p-2 mt-2 placeholder-black italic rounded-md"
+                            labelClassName="block text-white text-sm font-bold"
+                        >
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </FormInput>
+                    </div>
+                    <div className="mb-5">
+                        <FormInput
+                            type="select"
+                            name="patientType"
+                            label="Patient Type"
+                            className="border-2 w-full p-2 mt-2 placeholder-black italic rounded-md"
+                            labelClassName="block text-white text-sm font-bold"
+                        >
+                            <option value="AS">Subvented Antigenyc</option>
+                            <option value="AP">Private Antigenyc</option>
+                            <option value="AE">Antigenyc Employee</option>
+                            <option value="PCRP">Private PCR</option>
+                            <option value="PCRE">Employee PCR</option>
+                        </FormInput>
+                    </div>
+                    <div className="mb-5">
+                        <FormInput
+                            name="departureDate"
+                            label="DepartureDate"
+                            type="date"
+                            className="border-2 w-full p-2 mt-2 placeholder-black italic rounded-md"
+                            labelClassName="block text-white text-sm font-bold"
+                        />
+                    </div>
                 </div>
 
                 <div className="second-col">
@@ -75,6 +123,51 @@ const Formulary = () => {
                             label="Date of Birth"
                             className="border-2 w-full p-2 mt-2 placeholder-black italic rounded-md"
                         />
+                    </div>
+                    <div className="mb-5">
+                        <FormInput
+                            type="datetime-local"
+                            name="testDate"
+                            labelClassName="block text-white text-sm font-bold"
+                            label="Test Date"
+                            className="border-2 w-full p-2 mt-2 placeholder-black italic rounded-md"
+                        />
+                    </div>
+                    <div className="mb-5">
+                        <FormInput
+                            name="age"
+                            label="Age"
+                            className="border-2 w-full p-2 mt-2 placeholder-black italic rounded-md"
+                            labelClassName="block text-white text-sm font-bold"
+                        />
+                    </div>
+                    <div className="mb-5">
+                        <FormInput
+                            name="phoneNumber"
+                            label="Phone Number"
+                            className="border-2 w-full p-2 mt-2 placeholder-black italic rounded-md"
+                            labelClassName="block text-white text-sm font-bold"
+                        />
+                    </div>
+                    <div className="mb-5">
+                        <FormInput
+                            name="room"
+                            label="Room"
+                            className="border-2 w-full p-2 mt-2 placeholder-black italic rounded-md"
+                            labelClassName="block text-white text-sm font-bold"
+                        />
+                    </div>
+                    <div className="mb-5">
+                        <FormInput
+                            name="result"
+                            label="Result"
+                            type="select"
+                            className="border-2 w-full p-2 mt-2 placeholder-black italic rounded-md"
+                            labelClassName="block text-white text-sm font-bold"
+                        >
+                            <option value="positive">Positive</option>
+                            <option value="negative">Negative</option>
+                        </FormInput>
                     </div>
                 </div>
             </Form>
